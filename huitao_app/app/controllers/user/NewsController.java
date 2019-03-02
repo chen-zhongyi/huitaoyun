@@ -19,9 +19,9 @@ public class NewsController extends ApiController {
         renderJSON(Result.succeed(new PageData(vo.page, vo.size, total, vos)));
     }
 
-    @ActionMethod(name = "新闻详情", param = "newsId", clazz = NewsVO.class)
+    @ActionMethod(name = "新闻详情", param = "code", clazz = NewsVO.class)
     public static void info(NewsVO vo) {
-        News news = News.findByID(vo.newsId);
+        News news = News.findByCode(vo.code);
         renderJSON(Result.succeed(new NewsVO(news)));
     }
 }
