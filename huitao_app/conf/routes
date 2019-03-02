@@ -17,6 +17,17 @@
 *       /admin/category/{action}                        admin.CategoryController.{action}
 *       /admin/news/{action}                            admin.NewsController.{action}
 
+# H5
+*		/user/h5										user.Application.index
+*		/user/h5/version								user.Application.version
+*		/user/h5/configData							    user.Application.configData
+*		/user/h5/incrementVO						    user.Application.incrementVO
+*		/user/h5/areaData							    user.Application.areaData
+*		/user/h5/qiniu/uptoken						    user.Application.qiniuUptoken
+*		/user/h5/qiniu/uptoken/simple					user.Application.qiniuUptokenSimple
+*       /user/h5/category/{action}                      user.CategoryController.{action}
+*       /user/h5/news/{action}                          user.NewsController.{action}
+
 # BACK 后台开发
 *     	/back                       				    module:play_base
 
@@ -26,6 +37,7 @@ GET     /public/                                	    staticDir:public
 GET     /tmp/                                   	    staticDir:tmp
 GET		/readme                     				    staticFile:README.html
 GET     /readme/admin                                   staticFile:documentation/api/admin.html
+GET     /readme/userh5                                  staticFile:documentation/api/userh5.html
 
 # ALL
 *       /{controller}/{action}                  	    {controller}.{action}

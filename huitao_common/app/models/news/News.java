@@ -91,10 +91,10 @@ public class News extends BaseModel {
             hsql.add("title like ?");
             params.add("%" + vo.title + "%");
         }
-        if (vo.categoryId != null) {
+        /*if (vo.categoryId != null) {
             hsql.add("category.id = ?");
             params.add(vo.categoryId);
-        }
+        }*/
         return new Object[] {
                 hsql, params
         };

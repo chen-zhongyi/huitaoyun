@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class CategoryController extends ApiController {
 
-    @ActionMethod(name = "目录列表", param = "page,size,-name", clazz = {PageData.class, CategoryVO.class})
+    @ActionMethod(name = "目录列表", param = "page,size,-title", clazz = {PageData.class, CategoryVO.class})
     public static void list(CategoryVO vo) {
         int total = Category.count(vo);
         List<Category> categories = Category.fetch(vo);
