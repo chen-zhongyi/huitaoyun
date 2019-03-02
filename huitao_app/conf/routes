@@ -1,0 +1,31 @@
+# BASE
+*		/                                       	    Application.index
+*		/test                                           Application.test
+
+# ADMIN 管理端
+*		/admin										    admin.Application.index
+*		/admin/version								    admin.Application.version
+*		/admin/configData							    admin.Application.configData
+*		/admin/incrementVO						        admin.Application.incrementVO
+*		/admin/areaData							        admin.Application.areaData
+*		/admin/qiniu/uptoken						    admin.Application.qiniuUptoken
+*		/admin/qiniu/uptoken/simple					    admin.Application.qiniuUptokenSimple
+*       /admin/home                                     admin.Application.home
+*		/admin/admin/login							    admin.AdminController.login
+*		/admin/admin/logout							    admin.AdminController.logout
+*		/admin/admin/info							    admin.AdminController.info
+*       /admin/category/{action}                        admin.CategoryController.{action}
+*       /admin/news/{action}                            admin.NewsController.{action}
+
+# BACK 后台开发
+*     	/back                       				    module:play_base
+
+# STATIC
+GET     /favicon.ico                            	    404
+GET     /public/                                	    staticDir:public
+GET     /tmp/                                   	    staticDir:tmp
+GET		/readme                     				    staticFile:README.html
+GET     /readme/admin                                   staticFile:documentation/api/admin.html
+
+# ALL
+*       /{controller}/{action}                  	    {controller}.{action}

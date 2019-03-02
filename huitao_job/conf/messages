@@ -1,0 +1,5 @@
+# Default oa_job messages
+# You can specialize this file for each language.
+# For exemple, for french create a messages.fr file
+
+#oa_job.name=oa_job

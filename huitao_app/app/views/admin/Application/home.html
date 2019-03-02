@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>后台-主页</title>
+    <link rel="stylesheet" href="@{'/public/layui/css/layui.css'}">
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-avatar1"><a href="ssh://zht1">后台管理系统</a></div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item"><a href="javascript:;"><img class="layui-nav-img"> ${admin.name} </a>
+                <dl class="layui-nav-child">
+                    <dd>
+                        <a href="">基本资料</a>
+                    </dd>
+                    <dd>
+                        <a href="">安全设置</a>
+                    </dd>
+                    <dd>
+                        <a href="/back/logout">退出</a>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="nav" data="xxx">
+                <li class="layui-nav-item"><a href="javascript:;" data="category">目录管理</a></li>
+                <li class="layui-nav-item"><a href="javascript:;" data="news">新闻管理</a></li>
+            </ul>
+            <input type="hidden" id="access" value="${new com.google.gson.Gson().toJson(access)}">
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div class="layui-tab layui-tab-card" lay-allowClose="true"
+             lay-filter="tab">
+            <ul class="layui-tab-title">
+            </ul>
+            <div class="layui-tab-content">
+            </div>
+        </div>
+    </div>
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © copyright
+    </div>
+</div>
+<script src="@{'/public/layui/layui.all.js'}"></script>
+<script src="@{'/public/wangeditor/wangEditor.js'}"></script>
+<script src="@{'/public/cryptojs/core.js'}"></script>
+<script src="@{'/public/cryptojs/md5.js'}"></script>
+#{include 'admin/Application/category.html'/}
+#{include 'admin/Application/news.html' /}
+<script src="@{'/public/back/js/back.js'}"></script>
+<script src="@{'/public/admin/js/category.js'}"></script>
+<script src="@{'/public/admin/js/news.js'}"></script>
+</body>
+</html>

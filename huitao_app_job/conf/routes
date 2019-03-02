@@ -1,0 +1,14 @@
+# BASE
+*		/                                       	Application.index
+*		/test                                       Application.test
+
+# BACK 后台开发
+*     	/back                       				module:play_base
+
+# STATIC
+GET     /favicon.ico                            	404
+GET		/readme                     				staticFile:README.html
+GET     /tmp/                                   	staticDir:tmp
+
+# ALL
+*       /{controller}/{action}                  	{controller}.{action}

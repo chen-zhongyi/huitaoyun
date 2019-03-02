@@ -1,0 +1,4 @@
+self: play -> oa_job 0.1
+
+require:
+    - play
