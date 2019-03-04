@@ -28,6 +28,8 @@ public class News extends BaseModel {
     public String source;
     @Column(columnDefinition = STRING + "'code'")
     public String code;
+    @Column(columnDefinition = LONG + "'发布时间'")
+    public Long publishTime = System.currentTimeMillis();
 
     @ManyToOne
     public Category category; // 目录
@@ -45,7 +47,12 @@ public class News extends BaseModel {
         this.images = vo.images != null ? StringUtils.join(vo.images, ",") : images;
         this.source = vo.source != null ? vo.source : source;
         this.category = vo.categoryId != null ? Category.findByID(vo.categoryId) : category;
+        this.publishTime = vo.publishTime != null ? vo.publishTime : publishTime;
         return this.save();
+    }
+
+    public Long publishTime() {
+        return this.publishTime == null ? this.createTime : this.publishTime;
     }
 
     public void del() {

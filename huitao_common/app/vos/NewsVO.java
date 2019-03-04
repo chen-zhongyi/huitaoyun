@@ -26,6 +26,8 @@ public class NewsVO extends OneData {
     public Long categoryId;
     @DataField(name = "目录名称")
     public String categoryName;
+    @DataField(name = "发布时间")
+    public Long publishTime;
 
     public NewsVO() {
         this.condition("order by id desc");
@@ -40,6 +42,7 @@ public class NewsVO extends OneData {
         this.images = BaseUtils.strToList(news.images);
         this.source = news.source;
         this.code = news.code;
+        this.publishTime = news.publishTime();
         if (news.category != null) {
             this.categoryId = news.category.id;
             this.categoryName = news.category.name;
