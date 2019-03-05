@@ -4,7 +4,6 @@
         {field: 'newsId', title: 'ID', align: 'center', sort: true},
         {field: 'title', title: '标题', align: 'center'},
         {field: 'subTitle', title: '子标题', align: 'center'},
-        {field: 'content', title: '内容', align: 'center'},
         {field: 'images', title: '配图', align: 'center'},
         {field: 'source', title: '来源', align: 'center'},
         {field: 'code', title: 'code', align: 'center'},
@@ -55,12 +54,6 @@
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <label class="layui-form-label">内容</label>
-                    <div class="layui-input-inline">
-                        <input type="text" class="layui-input" lay-verify="required" name="content" value="{{d.content}}">
-                    </div>
-                </div>
-                <div class="layui-inline">
                     <label class="layui-form-label">配图</label>
                     <div class="layui-input-inline">
                         <input type="text" class="layui-input" lay-verify="required" name="images" value="{{d.images}}">
@@ -76,6 +69,12 @@
                     <label class="layui-form-label">code</label>
                     <div class="layui-input-inline">
                         <input type="text" class="layui-input" name="code" value="{{d.code}}">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">内容</label>
+                    <div class="layui-input-block">
+                        <div id="news_content"></div>
                     </div>
                 </div>
             </div>

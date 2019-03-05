@@ -4,6 +4,7 @@ import models.BaseModel;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
 import utils.BaseUtils;
+import utils.RegexUtil;
 import vos.NewsVO;
 
 import javax.persistence.Column;
@@ -22,7 +23,7 @@ public class News extends BaseModel {
     public String subTitle;
     @Column(columnDefinition = STRING_TEXT + "'内容'")
     public String content;
-    @Column(columnDefinition = STRING + "'配图'")
+    @Column(columnDefinition = STRING_2000 + "'配图'")
     public String images;
     @Column(columnDefinition = STRING + "'来源'")
     public String source;
@@ -48,6 +49,7 @@ public class News extends BaseModel {
         this.source = vo.source != null ? vo.source : source;
         this.category = vo.categoryId != null ? Category.findByID(vo.categoryId) : category;
         this.publishTime = vo.publishTime != null ? vo.publishTime : publishTime;
+        this.images = StringUtils.join(RegexUtil.getImgStr(this.content), ",");
         return this.save();
     }
 

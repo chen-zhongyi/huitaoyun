@@ -17,16 +17,18 @@ form.on('submit(news_search)', function (data) {
 });
 
 form.on('submit(news_form)', function () {
-    var d = {newsId: '', title: '', subTitle: '', content: '', images: '', source: '', code: ''};
+    var d = {newsId: '', title: '', subTitle: '', images: '', source: '', code: '', content: ''};
     var admin_form_html = laytpl($('#news_form').html()).render(d);
     layer_index = layer.open({
         type: 1,
         area: area_7_6,
         content: admin_form_html
     });
+    wang_editor('news_content');
 });
 form.on('submit(news_add)', function (data) {
     var param = data.field;
+    param['content'] = editor.txt.html();
     $.post('/admin/news/add', param, function (result, status) {
         news_table();
     });
@@ -41,14 +43,17 @@ table.on('tool(news_table)', function (obj) {
             area: area_8_6,
             content: admin_form_html
         });
+        wang_editor('news_content');
+        editor.txt.html(d.content);
         form.on('submit(news_edit)', function (data) {
             var param = data.field;
+            param['content'] = editor.txt.html();
             $.post('/admin/news/edit', param, function (result, status) {
                 obj.update(param);
             });
         });
     } else if (e === 'del') {
-        layer.confirm('确定删除目录', function (index) {
+        layer.confirm('确定删除新闻', function (index) {
             $.post('/admin/news/delete', d, function (result, status) {
                 obj.del();
             });
